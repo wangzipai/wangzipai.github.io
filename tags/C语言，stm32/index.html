@@ -113,7 +113,7 @@
 
 
 
-  <meta name="keywords" content="C语言，stm32,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -124,18 +124,13 @@
 
 
 
-<meta name="description" content="​         阅读GPIO_Init源码时，发现断言函数 assert，如下： 1234/* Check the parameters */assert_param(IS_GPIO_ALL_PERIPH(GPIOx));assert_param(IS_GPIO_MODE(GPIO_InitStruct-&amp;gt;GPIO_Mode));assert_param(IS_GPIO_PIN(GPIO">
-<meta name="keywords" content="C语言，stm32">
-<meta property="og:type" content="article">
-<meta property="og:title" content="断言">
-<meta property="og:url" content="http://yoursite.com/2019/03/17/断言/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/tags/C语言，stm32/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="​         阅读GPIO_Init源码时，发现断言函数 assert，如下： 1234/* Check the parameters */assert_param(IS_GPIO_ALL_PERIPH(GPIOx));assert_param(IS_GPIO_MODE(GPIO_InitStruct-&amp;gt;GPIO_Mode));assert_param(IS_GPIO_PIN(GPIO">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-17T15:56:43.666Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="断言">
-<meta name="twitter:description" content="​         阅读GPIO_Init源码时，发现断言函数 assert，如下： 1234/* Check the parameters */assert_param(IS_GPIO_ALL_PERIPH(GPIOx));assert_param(IS_GPIO_MODE(GPIO_InitStruct-&amp;gt;GPIO_Mode));assert_param(IS_GPIO_PIN(GPIO">
+<meta name="twitter:title" content="Hexo">
 
 
 
@@ -165,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/17/断言/">
+  <link rel="canonical" href="http://yoursite.com/tags/C语言，stm32/">
 
 
 
 
 
-  <title>断言 | Hexo</title>
+  <title>标签: C语言，stm32 | Hexo</title>
   
 
 
@@ -190,7 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,195 +301,52 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>C语言，stm32<small>标签</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/断言/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangyaoqin">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/blog_logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2019/03/17/断言/" itemprop="url">
+              
+                <span itemprop="name">断言</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">断言</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T23:10:42+08:00">
-                2019-03-17
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-03-17T23:10:42+08:00" content="2019-03-17">
+          03-17
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.3k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>​         阅读GPIO_Init源码时，发现断言函数 assert，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* Check the parameters */</span><br><span class="line">assert_param(IS_GPIO_ALL_PERIPH(GPIOx));</span><br><span class="line">assert_param(IS_GPIO_MODE(GPIO_InitStruct-&gt;GPIO_Mode));</span><br><span class="line">assert_param(IS_GPIO_PIN(GPIO_InitStruct-&gt;GPIO_Pin));</span><br></pre></td></tr></table></figure>
-<p>​        为了能深入的理解断言在程序运行中的作用，我尝试对断言进行总结。在使用C语言编写工程代码时，我们总会对某种假设条件进行检查，断言就是用于在代码中捕捉这些假设，可以将断言看作是异常处理的一种高级形式。然而assert并不仅仅是一个报错函数，事实上它还是一个宏。</p>
-<p>​       断言表示为一些布尔表达式，程序员相信在程序中的某个特定点该表达式值为真。可以在任何时候启用和禁用断言验证，因此可以在测试时启用断言，而在部署时禁用断言。同样，程序投入运行后，最终用户在遇到问题时可以重新起用断言。它可以快速发现并定位软件问题，同时对系统错误进行自动报警。断言可以对在系统中隐藏很深，用其它手段极难发现的问题可以用断言来进行定位，从而缩短软件问题定位时间，提高系统的可测性。实际应用时，可根据具体情况灵活地设计断言。</p>
-<p>​        原型定义：void assert( int expression );</p>
-<p>​       assert宏的原型定义在&lt;assert.h&gt;中，其作用是先计算表达式 expression ，如果expression的值为假（即为0），那么它首先打印一条出错信息，然后通过调用abort 来终止程序运行。下面来看看一段代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;assert.h&gt;</span><br><span class="line"></span><br><span class="line">int main( void )</span><br><span class="line">&#123;</span><br><span class="line">   int i;</span><br><span class="line">   i=1;</span><br><span class="line">   assert(i++);</span><br><span class="line">   printf(&quot;%d\n&quot;,i);</span><br><span class="line">   return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​       因为我们给定的i初始值为1，所以使用assert(i++);语句的时候不会出现错误，进而执行了i++，所以其后的打印语句输出值为2。如果我们把i的初始值改为0，那么就回出现如下错误。<br>Assertion failed: i++, file E:\fdsa\assert2.cpp, line 8<br>Press any key to continue</p>
-<p>​       断言语句不是永远会执行，可以屏蔽也可以启用，这就要求assert不管是在屏蔽还是启用的情况下都不能对我们本身代码的功能有所影响，这样的话刚才我们在代码中使用了一句assert(i++);是不妥的，因为我们一旦禁用了assert，i++的语句就得不到执行，对于接下来i值的使用就会出现问题了，所以对于这样的语句我们应该是要分开来实现，写出如下两句来替代， assert(i); i++;，所以这就对于断言的使用有了相应的要求，那么我们一般在什么情况下使用断言呢？主要体现在一下几个方面：</p>
-<p>​           1.可以在预计正常情况下程序不会到达的地方放置断言。（如assert (0);）</p>
-<p>​        2.使用断言测试方法执行的前置条件和后置条件 。</p>
-<p>​        3.使用断言检查类的不变状态，确保任何情况下，某个变量的状态必须满足。（如某个变量的变化范围）</p>
-<p>​       对于上面的前置条件和后置条件可能有的读者还不是很了解，那么看看下面的解释你就明白了。</p>
-<p>​        1.前置条件断言：代码执行之前必须具备的特性</p>
-<p>​        2.后置条件断言：代码执行之后必须具备的特性</p>
-<p>​        3.前后不变断言：代码执行前后不能变化的特性</p>
-<p>​       当然在使用的断言的过程中会有一些我们应该注意的事项和养成一些良好的习惯，如：</p>
-<p>​        1.每个assert只检验一个条件，因为同时检验多个条件时，如果断言失败，我们就无法直观的判断是哪个条件失败</p>
-<p>​        2.不能使用改变环境的语句，就像我们上面的代码改变了i变量，在实际编写代码的过程中是不能这样做的</p>
-<p>​        3.assert和后面的语句应空一行，以形成逻辑和视觉上的一致感，也算是一种良好的编程习惯吧，让编写的代码有一种视觉上的美感</p>
-<p>​        4.有的地方，assert不能代替条件过滤</p>
-<p>​        5.放在函数参数的入口处检查传入参数的合法性</p>
-<p>​        6.断言语句不可以有任何边界效应</p>
-<p>​        7.频繁的调用会极大的影响程序的性能，增加额外的开销。所以在调试结束后，可以通过在包含#include 的语句之前插入 #define NDEBUG 来禁用assert调用。</p>
-<p>​       现在回到GPIO_Init源码中，通过以下2段代码我们可以更好的理解断言在实际开发中的应用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert_param(IS_GPIO_ALL_PERIPH(GPIOx));</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#define IS_GPIO_ALL_PERIPH(PERIPH) (((PERIPH) == GPIOA) || \</span><br><span class="line">                                    ((PERIPH) == GPIOB) || \</span><br><span class="line">                                    ((PERIPH) == GPIOC) || \</span><br><span class="line">                                    ((PERIPH) == GPIOD) || \</span><br><span class="line">                                    ((PERIPH) == GPIOE) || \</span><br><span class="line">                                    ((PERIPH) == GPIOF) || \</span><br><span class="line">                                    ((PERIPH) == GPIOG))</span><br></pre></td></tr></table></figure>
-<p>​      由第二段代码的含参宏，确定传入的参数是否符合要求，这种用法为上述的前置条件断言。</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/C语言，stm32/" rel="tag"># C语言，stm32</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/03/17/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -502,10 +354,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -718,10 +566,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 

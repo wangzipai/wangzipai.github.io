@@ -335,7 +335,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/17/断言/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2019/03/17/断言/" itemprop="url">断言</a></h1>
         
 
         <div class="post-meta">
@@ -408,8 +408,7 @@
       
         
           
-            <p>title: 断言<br>date: 2019-03-17 23:10:42<br>tags: [C语言，stm32]</p>
-<p>​         阅读GPIO_Init源码时，发现断言函数 assert，如下：</p>
+            <p>​         阅读GPIO_Init源码时，发现断言函数 assert，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* Check the parameters */</span><br><span class="line">assert_param(IS_GPIO_ALL_PERIPH(GPIOx));</span><br><span class="line">assert_param(IS_GPIO_MODE(GPIO_InitStruct-&gt;GPIO_Mode));</span><br><span class="line">assert_param(IS_GPIO_PIN(GPIO_InitStruct-&gt;GPIO_Pin));</span><br></pre></td></tr></table></figure>
 <p>​        为了能深入的理解断言在程序运行中的作用，我尝试对断言进行总结。在使用C语言编写工程代码时，我们总会对某种假设条件进行检查，断言就是用于在代码中捕捉这些假设，可以将断言看作是异常处理的一种高级形式。然而assert并不仅仅是一个报错函数，事实上它还是一个宏。</p>
 <p>​       断言表示为一些布尔表达式，程序员相信在程序中的某个特定点该表达式值为真。可以在任何时候启用和禁用断言验证，因此可以在测试时启用断言，而在部署时禁用断言。同样，程序投入运行后，最终用户在遇到问题时可以重新起用断言。它可以快速发现并定位软件问题，同时对系统错误进行自动报警。断言可以对在系统中隐藏很深，用其它手段极难发现的问题可以用断言来进行定位，从而缩短软件问题定位时间，提高系统的可测性。实际应用时，可根据具体情况灵活地设计断言。</p>
@@ -684,7 +683,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
