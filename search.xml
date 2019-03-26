@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[GPIO_KEY实验笔记]]></title>
+    <url>%2Fposts%2F11950%2F</url>
+    <content type="text"><![CDATA[本来觉得这次实验比较简单，就不写了，然而好像太高估自己了。。 首先是对比自己写的代码和给的源码，发现源码比我多了一行 1GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);//关闭jtag，使能SWD，可以用SWD模式调试 注释前后，对实验好像没影响。看了一下网上的说法，大概是这样的： STM32F10x系列的MCU复位后，PA13/14/15 &amp; PB3/4默认配置为JTAG功能。有时我们为了充分利用MCU I/O口的资源，会把这些端口设置为普通I/O口。 而KEY0的IO口恰好是PA15。 然后是KEY_Scan()这个函数的写法，源码实在是太简洁而严谨了，感觉自己还差的很多啊。还有就是关于static这个关键字，让我发现之前关于C语言的一些深入的知识已经不太记得了，需要重新系统的学习一遍。 123456789101112131415u8 KEY_Scan(u8 mode)&#123;truestatic u8 key_up = 1;trueif (mode) key_up = 1;trueif (key_up &amp;&amp; (KEY1==0 || KEY0==0 || WK_UP==1)) true&#123;truetruedelay_ms(10);truetruetruekey_up = 0;truetruetrueif (KEY1==0) return KEY1_ON;truetruetrueelse if (KEY0==0) return KEY0_ON;truetruetrueelse if (WK_UP==1) return WKUP_ON;true&#125; truetrueelse if (KEY1==1 &amp;&amp; KEY0==1 &amp;&amp; WK_UP==0) key_up = 1;truetruereturn 0;&#125;]]></content>
+      <tags>
+        <tag>stm32</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[延时消抖]]></title>
+    <url>%2Fposts%2F48277%2F</url>
+    <content type="text"><![CDATA[Key_Scan()函数中有一段代码 1234567891011121314if (GPIO_ReadInputDataBit(GPIOx,GPIO_Pin) == KEY_ON)&#123; /*延时消抖*/ Delay(10000); if (GPIO_ReadInputDataBit(GPIOx,GPIO_Pin) == KEY_ON) &#123; while (GPIO_ReadInputDataBit(GPIOx,GPIO_Pin) == KEY_ON); return KEY_ON; &#125; else return KEY_OFF;&#125;elsereturn KEY_OFF; 好奇什么是延时消抖，为什么有2条重复的代码if (GPIO_ReadInputDataBit(GPIOx,GPIO_Pin) == KEY_ON) 百度百科说：按键消抖通常的按键所用开关为机械弹性开关，当机械触点断开、闭合时，由于机械触点的弹性作用，一个按键开关在闭合时不会马上稳定地接通，在断开时也不会一下子断开。因而在闭合及断开的瞬间均伴随有一连串的抖动，为了不产生这种现象而作的措施就是按键消抖。 所以，Key_Scan()才要读取2次GPIO_ReadInputDataBit读取的数据。键抖动会引起一次按键被误读多次。为确保CPU对键的一次闭合仅作一次处理，必须去除键抖动。在键闭合稳定时读取键的状态，并且必须判别到键释放稳定后再作处理。 抖动时间:抖动时间的长短由按键的机械特性决定，一般为5ms～10ms。这是一个很重要的时间参数，在很多场合都要用到。按键稳定闭合时间的长短则是由操作人员的按键动作决定的，一般为零点几秒至数秒。参照这个老哥的说法nickqiang，这个参数应该挺准确的 然并软，这样的消抖在实际的工程应用并无价值，在实际的工程应用中，是使用一个周期中断函数，每隔一段时间调用该函数来检测设备所有按键，把按下的键用不同的全局变量记录下来。在检测时也是使用短暂延时来消抖（滤波）。 像上面那样消抖，可以达到去抖的目的，但是实现方式太过暴力，在延时的时候一直占用cpu的资源，如果在延时的时候，有其他外部中断或者抢占事件，系统完全没有响应的。]]></content>
+      <tags>
+        <tag>stm32</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[stm32蜂鸣器实验总结]]></title>
     <url>%2Fposts%2F31496%2F</url>
     <content type="text"><![CDATA[由于家境贫寒只买得起mini版的缘故，关于蜂鸣器的实验只能另外买蜂鸣器外设来做实验了。也因此蜂鸣器所使用的IO口可以自定义，并不一定只能用PB.8来做实验。实验中出现了一些小问题，记录下来，以便之后的复习。 首先是在写beef.c的时候，变量的声明放在了可执行语句的后面。 12345678910111213141516#include "beep.h"#include "stm32f10x.h"void BEEP_Init(void)&#123; RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE); GPIO_InitTypeDef GPIO_InitStructure; GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; GPIO_Init(GPIOB,&amp;GPIO_InitStructure); GPIO_ResetBits(GPIOB,GPIO_Pin_8); &#125; 使用MDK调试的时候，出现以下错误： error: #268: declaration may not appear after executablestatement 修改为： 12345678910111213141516#include "beep.h"#include "stm32f10x.h"void BEEP_Init(void)&#123; GPIO_InitTypeDef GPIO_InitStructure; RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE); GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8; GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; GPIO_Init(GPIOB,&amp;GPIO_InitStructure); GPIO_ResetBits(GPIOB,GPIO_Pin_8); &#125; 编译通过。 第二个错误是误把RCC_APB2PeriphClockCmd写成RCC_APB2PeriphResetCmd，由于这两个函数前后一样，且RCC_APB2PeriphResetCmd函数在更显眼的地方，以后要注意。 接下来是关于蜂鸣器实验的一些总结。 蜂鸣器是一种一体化结构的电子讯响器，采用直流电压供电。STM32 开发板板载的蜂鸣器是电磁式的有源蜂鸣器。这里的有源不是指电源的“源”，而是指有没有自带震荡电路，有源蜂鸣器自带了震荡电路，一通电就会发声；无源蜂鸣器则没有自带震荡电路，必须外部提供2~5Khz 左右的方波驱动，才能发声。 STM32 的单个 IO 最大可以提供 25mA 电流（来自数据手册），而蜂鸣器的驱动电流是 30mA 左右，两者十分相近，但是全盘考虑，STM32 整个芯片的电流，最大也就 150mA，如果用 IO 口直接驱动蜂鸣器，其他地方用电就得省着点了…所以，我们不用 STM32 的 IO 直接驱动蜂鸣器，而是通过三极管扩流后再驱动蜂鸣器，这样STM32 的 IO 只需要提供不到 1mA 的电流就足够了。 蜂鸣器与 STM32 连接原理图 ： 图中我们用到一个 NPN 三极管（S8050）来驱动蜂鸣器，R38 主要用于防止蜂鸣器的误发声。当 PB.8 输出高电平的时候，蜂鸣器将发声，当 PB.8 输出低电平的时候，蜂鸣器停止发声。]]></content>
