@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wangzipai.github.io/"/>
-  <updated>2019-04-13T09:23:57.827Z</updated>
+  <updated>2019-04-13T09:56:29.914Z</updated>
   <id>https://wangzipai.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wangzipai.github.io/posts/28547/"/>
     <id>https://wangzipai.github.io/posts/28547/</id>
     <published>2019-04-13T07:49:12.000Z</published>
-    <updated>2019-04-13T09:23:57.827Z</updated>
+    <updated>2019-04-13T09:56:29.914Z</updated>
     
     <content type="html"><![CDATA[<p>19年4月13日 小雨</p><a id="more"></a><p>不管怎么说现在学习的热情已经越来越低了，看了下时间，大概坚持了一个月的时间，自觉性就不再了。我觉得规律是一个很重要的原因。之前完全靠自觉，没有定制完备的作息。而这两天中午莫名的失眠，直接导致了晚上学习时精力的不足，加上看的书籍过于晦涩，于是很难集中注意力在书上。可我又是一个不喜欢让太过死板的制度限制住的人，就简单制定一下每天的目标，而不是具体的每个小时要做的事吧。</p><p>首先是周一到周五，由于白天有课，学习的时间只有到晚饭后了。每天看一讲视频和对应的章节的书，然后写一下相应的代码与总结。由于stm32的视频快看完了，以及我的几本C的书籍难度超微有点大，后续的视频改成C的。先看C的视频再去啃书。最后每天研究一题嵌入式的面试题吧。</p><p>然后是周末的时间，因为死宅睡醒就是中午了，吃完午饭后可以看会书，看到想睡就睡一觉。醒来后研究一下平时的课程到吃晚饭，然后重复工作日的作息。</p>]]></content>
     
@@ -32,7 +32,7 @@
     </summary>
     
     
-      <category term="日志" scheme="https://wangzipai.github.io/tags/%E6%97%A5%E5%BF%97/"/>
+      <category term="hide" scheme="https://wangzipai.github.io/tags/hide/"/>
     
   </entry>
   
