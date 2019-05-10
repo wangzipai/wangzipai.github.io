@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="Santos">
 <meta property="og:description" content="C语言最早有32个关键字。其中auto，register，extern，static这4个提供4种存储类别。四种存储类型中有两种存储期：自动存储期和静态存储期。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-07T07:26:43.131Z">
+<meta property="og:updated_time" content="2019-05-07T08:42:17.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言关键字">
 <meta name="twitter:description" content="C语言最早有32个关键字。其中auto，register，extern，static这4个提供4种存储类别。四种存储类型中有两种存储期：自动存储期和静态存储期。">
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  1.9k
                 </span>
               
 
@@ -453,8 +453,11 @@
 <p>static函数：被关键字static修饰的函数。static函数作用域是源文件，即其他源文件无法调用该函数，类似的private函数。</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> a=<span class="number">2</span>;</span><br><span class="line">	c++;</span><br><span class="line"><span class="keyword">return</span> (a++)+c; </span><br><span class="line">&#125;</span><br><span class="line">main()</span><br><span class="line">&#123; </span><br><span class="line">	<span class="keyword">int</span> i,k=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)</span><br><span class="line">	&#123; </span><br><span class="line">		<span class="keyword">int</span> a=<span class="number">0</span>; </span><br><span class="line">		k+=f(a); </span><br><span class="line">	&#125;</span><br><span class="line">	k+=a;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,k); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此时，变量a作为全局变量、局部静态变量和局部变量存在。但a作为不同变量存在时作用域也不同，并且没有联系。(ps: a++:先执行表达式后再自增，执行表达式时使用的是a的原值.++a:先自增再执行表达示，执行表达式时使用的是自增后的a。)</p>
+<p>此时，变量a作为全局变量、局部静态变量和局部变量存在。但a作为不同变量存在时作用域也不同，并且没有联系。(ps: a++:先执行表达式后再自增，执行表达式时使用的是a的原值.++a:先自增再执行表达示，执行表达式时使用的是自增后的a。)然而，实际开发中，这么写真的不会被打死吗。。</p>
 <h3 id="extern"><a href="#extern" class="headerlink" title="extern"></a>extern</h3><p>extern声明变量：表明该变量在其他源文件里已经被定义，此处需要使用。extern声明的变量必须是在其他源文件内的非静态的全局变量。</p>
+<h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p>volatile字面意思是易挥发，易变化的意思，它修辞的变量表示该变量的值很容易由于外部因素发生改变，强烈请求编译器要老老实实的在每次对变量进行访问时去内存里读取。</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">int a</span> = 10;</span><br><span class="line"></span><br><span class="line"><span class="attribute">int b</span> = a;</span><br><span class="line"></span><br><span class="line"><span class="attribute">int c</span> = a;</span><br></pre></td></tr></table></figure>
+<p>编译器扫描了代码发现上面，第一行代码在将10赋给了整形变量a，之后a变量的值没有再发生改变。在后面第二行中，将a变量里的值取出来赋给b变量。在第三行代码里将a变量的值赋给c的时候，因为CPU访问内存速度较慢，编译器为了提高效率，直接将10赋给了c。上述代码如果运行在多线程中，在一个线程上下文中没有改变它的值，但是我们不能保证变量的值没有被其它线程改变。为了防止在类似的情况下，编译器玩省事，可以将这些变量声明为volatile，这样，不管它的值有没有变化，每次对其值进行访问时，都会从内存里，寄存器里读取，从而保证数据的一致，做到表里如一。</p>
 
       
     </div>
@@ -504,6 +507,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/61141/" rel="prev" title="错题（1）">
+                错题（1） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -584,7 +591,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -597,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -637,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#auto"><span class="nav-number">1.</span> <span class="nav-text">auto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#register"><span class="nav-number">2.</span> <span class="nav-text">register</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static"><span class="nav-number">3.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extern"><span class="nav-number">4.</span> <span class="nav-text">extern</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#auto"><span class="nav-number">1.</span> <span class="nav-text">auto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#register"><span class="nav-number">2.</span> <span class="nav-text">register</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#static"><span class="nav-number">3.</span> <span class="nav-text">static</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extern"><span class="nav-number">4.</span> <span class="nav-text">extern</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#volatile"><span class="nav-number">5.</span> <span class="nav-text">volatile</span></a></li></ol></div>
             
 
           </div>
