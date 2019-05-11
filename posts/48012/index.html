@@ -148,18 +148,18 @@
 
 
 
-<meta name="description" content="写链表的时候突然想到.和-&amp;gt;的区别是什么，之前纠结了很久，但是因为不用C语言也就没去查找。 点运算符“.”应用于实际的对象，箭头运算符“-&amp;gt;”与一个指针对象的指针一起使用。 对于一个结构体： 123struct A&amp;#123;    int a;&amp;#125;; 如果有一个变量A n，那么使用其中的成员元素时： n.a = 1; 但如果用指针的方法访问，A *n，那么使用他的元素时也要用">
+<meta name="description" content="写链表的时候突然想到.和-&amp;gt;的区别是什么，之前纠结了很久，但是因为不用C语言也就没去查找。 点运算符“.”应用于实际的对象，箭头运算符“-&amp;gt;”与一个指针对象的指针一起使用。 对于一个结构体：">
 <meta name="keywords" content="C语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="点运算符和箭头运算符的区别">
 <meta property="og:url" content="https://wangzipai.github.io/posts/48012/index.html">
 <meta property="og:site_name" content="Santos">
-<meta property="og:description" content="写链表的时候突然想到.和-&amp;gt;的区别是什么，之前纠结了很久，但是因为不用C语言也就没去查找。 点运算符“.”应用于实际的对象，箭头运算符“-&amp;gt;”与一个指针对象的指针一起使用。 对于一个结构体： 123struct A&amp;#123;    int a;&amp;#125;; 如果有一个变量A n，那么使用其中的成员元素时： n.a = 1; 但如果用指针的方法访问，A *n，那么使用他的元素时也要用">
+<meta property="og:description" content="写链表的时候突然想到.和-&amp;gt;的区别是什么，之前纠结了很久，但是因为不用C语言也就没去查找。 点运算符“.”应用于实际的对象，箭头运算符“-&amp;gt;”与一个指针对象的指针一起使用。 对于一个结构体：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-10T16:14:29.852Z">
+<meta property="og:updated_time" content="2019-05-11T06:57:06.427Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="点运算符和箭头运算符的区别">
-<meta name="twitter:description" content="写链表的时候突然想到.和-&amp;gt;的区别是什么，之前纠结了很久，但是因为不用C语言也就没去查找。 点运算符“.”应用于实际的对象，箭头运算符“-&amp;gt;”与一个指针对象的指针一起使用。 对于一个结构体： 123struct A&amp;#123;    int a;&amp;#125;; 如果有一个变量A n，那么使用其中的成员元素时： n.a = 1; 但如果用指针的方法访问，A *n，那么使用他的元素时也要用">
+<meta name="twitter:description" content="写链表的时候突然想到.和-&amp;gt;的区别是什么，之前纠结了很久，但是因为不用C语言也就没去查找。 点运算符“.”应用于实际的对象，箭头运算符“-&amp;gt;”与一个指针对象的指针一起使用。 对于一个结构体：">
 
 
 
@@ -435,6 +435,7 @@
         <p>写链表的时候突然想到.和-&gt;的区别是什么，之前纠结了很久，但是因为不用C语言也就没去查找。</p>
 <p>点运算符“.”应用于实际的对象，箭头运算符“-&gt;”与一个指针对象的指针一起使用。</p>
 <p>对于一个结构体：</p>
+<a id="more"></a>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>如果有一个变量<code>A n</code>，那么使用其中的成员元素时：</p>
 <p><code>n.a = 1;</code></p>

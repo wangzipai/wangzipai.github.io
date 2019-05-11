@@ -881,7 +881,6 @@
           <h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>在C语言中有两种注释方式：</p>
 <p>一种是以<code>/*</code>开始、以<code>*/</code>结束的块注释（block comment），</p>
 <p>另一种是以<code>//</code>开始、以换行符结束的单行注释（line comment）。</p>
-<p>预处理器仅通过检查注释的结束符来检测注释中的字符，因此，不能嵌套块注释。在有些语言中，注释有时用于把一段代码“注释掉”，也就是使这段代码在程序中不起作用，<strong><em>但并不是将其真正从源文件中删除</em></strong>。在C语言中，如果用<code>/*</code>和<code>*/</code>来注释掉原先就有注释的代码，会出现问题。要从逻辑上删除一段C代码，更好的办法是使用#if指令。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/posts/54171/" rel="contents">
