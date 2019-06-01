@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[AP和STA模式]]></title>
+    <url>%2Fposts%2F2039%2F</url>
+    <content type="text"><![CDATA[wifi模块包括两种工作模式AP和STA。 AP：（Access Point）无线接入点。 STA：（Station）每一个连接到无线网络中的中断都可称为一个站点。 工作在AP模式 工作在AP模式下，手机、PAD、电脑等设备可以直接连上模块，可以很方便对用户设备进行控制 工作在STA模式 这是一种基木的组网方式，由一个AP和许多STA组成，如下图。其特点是AP处于中心地位，STA之间的相互通信都通过AP转发完成。该模式下，WIFI模块工作在STA(CLIENT)模式。通过适当的设置，COM的数据与WIFI的网路数据相互转换。 AP+STA 感觉就是把路由当作中继使用了。]]></content>
+      <tags>
+        <tag>AP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[点运算符和箭头运算符的区别]]></title>
     <url>%2Fposts%2F48012%2F</url>
     <content type="text"><![CDATA[写链表的时候突然想到.和-&gt;的区别是什么，之前纠结了很久，但是因为不用C语言也就没去查找。 点运算符“.”应用于实际的对象，箭头运算符“-&gt;”与一个指针对象的指针一起使用。 对于一个结构体： 123struct A&#123; int a;&#125;; 如果有一个变量A n，那么使用其中的成员元素时： n.a = 1; 但如果用指针的方法访问，A *n，那么使用他的元素时也要用指针 (*n).a = 1; 或者直接： n-&gt;a = 1; 所以，箭头的左边必须为指针，点号的左边必须为实体。]]></content>
