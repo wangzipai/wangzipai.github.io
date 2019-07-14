@@ -135,7 +135,7 @@
 
 
 
-  <meta name="keywords" content="C语言,stm32,">
+  <meta name="keywords" content="无线,">
 
 
 
@@ -148,18 +148,18 @@
 
 
 
-<meta name="description" content="​         阅读GPIO_Init源码时，发现断言函数 assert，如下： 1234/* Check the parameters */assert_param(IS_GPIO_ALL_PERIPH(GPIOx));assert_param(IS_GPIO_MODE(GPIO_InitStruct-&amp;gt;GPIO_Mode));assert_param(IS_GPIO_PIN(GPIO">
-<meta name="keywords" content="C语言,stm32">
+<meta name="description" content="有线-&amp;gt;无线优点： 移动性 弹性（快速部署） 成本 无线网络特点：对有线网络的互补而非取代 MAC：介质访问控制 指派给802.11网络卡的MAC地址与以太网来自同一地址库，对外面的网络而言，没有区别。802.11的MAC地址也会出现在ARP列表中 只要时802网络就必然会同时具备MAC与PHY两种元件，MAC用于决定如何访问介质与传输介质的规则，PHY负责传送与接收的细节。 CSMA／CD">
+<meta name="keywords" content="无线">
 <meta property="og:type" content="article">
-<meta property="og:title" content="断言">
-<meta property="og:url" content="https://wangzipai.github.io/posts/58240/index.html">
+<meta property="og:title" content="802.11无线网络">
+<meta property="og:url" content="https://wangzipai.github.io/posts/8965/index.html">
 <meta property="og:site_name" content="Santos">
-<meta property="og:description" content="​         阅读GPIO_Init源码时，发现断言函数 assert，如下： 1234/* Check the parameters */assert_param(IS_GPIO_ALL_PERIPH(GPIOx));assert_param(IS_GPIO_MODE(GPIO_InitStruct-&amp;gt;GPIO_Mode));assert_param(IS_GPIO_PIN(GPIO">
+<meta property="og:description" content="有线-&amp;gt;无线优点： 移动性 弹性（快速部署） 成本 无线网络特点：对有线网络的互补而非取代 MAC：介质访问控制 指派给802.11网络卡的MAC地址与以太网来自同一地址库，对外面的网络而言，没有区别。802.11的MAC地址也会出现在ARP列表中 只要时802网络就必然会同时具备MAC与PHY两种元件，MAC用于决定如何访问介质与传输介质的规则，PHY负责传送与接收的细节。 CSMA／CD">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-20T11:40:09.199Z">
+<meta property="og:updated_time" content="2019-07-14T16:04:35.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="断言">
-<meta name="twitter:description" content="​         阅读GPIO_Init源码时，发现断言函数 assert，如下： 1234/* Check the parameters */assert_param(IS_GPIO_ALL_PERIPH(GPIOx));assert_param(IS_GPIO_MODE(GPIO_InitStruct-&amp;gt;GPIO_Mode));assert_param(IS_GPIO_PIN(GPIO">
+<meta name="twitter:title" content="802.11无线网络">
+<meta name="twitter:description" content="有线-&amp;gt;无线优点： 移动性 弹性（快速部署） 成本 无线网络特点：对有线网络的互补而非取代 MAC：介质访问控制 指派给802.11网络卡的MAC地址与以太网来自同一地址库，对外面的网络而言，没有区别。802.11的MAC地址也会出现在ARP列表中 只要时802网络就必然会同时具备MAC与PHY两种元件，MAC用于决定如何访问介质与传输介质的规则，PHY负责传送与接收的细节。 CSMA／CD">
 
 
 
@@ -189,13 +189,13 @@
 
 
 
-  <link rel="canonical" href="https://wangzipai.github.io/posts/58240/">
+  <link rel="canonical" href="https://wangzipai.github.io/posts/8965/">
 
 
 
 
 
-  <title>断言 | Santos</title>
+  <title>802.11无线网络 | Santos</title>
   
 
 
@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangzipai.github.io/posts/58240/">
+    <link itemprop="mainEntityOfPage" href="https://wangzipai.github.io/posts/8965/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangyaoqin">
@@ -361,7 +361,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">断言</h1>
+          <h1 class="post-title" itemprop="name headline">802.11无线网络</h1>
         
 
         <div class="post-meta">
@@ -373,8 +373,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T23:10:42+08:00">
-                2019-03-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-14T17:31:56+08:00">
+                2019-07-14
               </time>
             
 
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  3.7k
                 </span>
               
 
@@ -432,35 +432,50 @@
       
 
       
-        <p>​         阅读GPIO_Init源码时，发现断言函数 assert，如下：</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/* Check the parameters */</span><br><span class="line">assert_param(<span class="name">IS_GPIO_ALL_PERIPH</span>(<span class="name">GPIOx</span>))<span class="comment">;</span></span><br><span class="line">assert_param(<span class="name">IS_GPIO_MODE</span>(<span class="name">GPIO_InitStruct-&gt;GPIO_Mode</span>))<span class="comment">;</span></span><br><span class="line">assert_param(<span class="name">IS_GPIO_PIN</span>(<span class="name">GPIO_InitStruct-&gt;GPIO_Pin</span>))<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<p>​        为了能深入的理解断言在程序运行中的作用，我尝试对断言进行总结。在使用C语言编写工程代码时，我们总会对某种假设条件进行检查，断言就是用于在代码中捕捉这些假设，可以将断言看作是异常处理的一种高级形式。然而assert并不仅仅是一个报错函数，事实上它还是一个宏。</p>
-<a id="more"></a>
-<p>​       断言表示为一些布尔表达式，程序员相信在程序中的某个特定点该表达式值为真。可以在任何时候启用和禁用断言验证，因此可以在测试时启用断言，而在部署时禁用断言。同样，程序投入运行后，最终用户在遇到问题时可以重新起用断言。它可以快速发现并定位软件问题，同时对系统错误进行自动报警。断言可以对在系统中隐藏很深，用其它手段极难发现的问题可以用断言来进行定位，从而缩短软件问题定位时间，提高系统的可测性。实际应用时，可根据具体情况灵活地设计断言。</p>
-<p>​        原型定义：void assert( int expression );</p>
-<p>​       assert宏的原型定义在&lt;assert.h&gt;中，其作用是先计算表达式 expression ，如果expression的值为假（即为0），那么它首先打印一条出错信息，然后通过调用abort 来终止程序运行。下面来看看一段代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">void</span> )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> i;</span><br><span class="line">   i=<span class="number">1</span>;</span><br><span class="line">   assert(i++);</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​       因为我们给定的i初始值为1，所以使用assert(i++);语句的时候不会出现错误，进而执行了i++，所以其后的打印语句输出值为2。如果我们把i的初始值改为0，那么就回出现如下错误。<br>Assertion failed: i++, file E:\fdsa\assert2.cpp, line 8<br>Press any key to continue</p>
-<p>​       断言语句不是永远会执行，可以屏蔽也可以启用，这就要求assert不管是在屏蔽还是启用的情况下都不能对我们本身代码的功能有所影响，这样的话刚才我们在代码中使用了一句assert(i++);是不妥的，因为我们一旦禁用了assert，i++的语句就得不到执行，对于接下来i值的使用就会出现问题了，所以对于这样的语句我们应该是要分开来实现，写出如下两句来替代， assert(i); i++;，所以这就对于断言的使用有了相应的要求，那么我们一般在什么情况下使用断言呢？主要体现在一下几个方面：</p>
-<p>​           1.可以在预计正常情况下程序不会到达的地方放置断言。（如assert (0);）</p>
-<p>​        2.使用断言测试方法执行的前置条件和后置条件 。</p>
-<p>​        3.使用断言检查类的不变状态，确保任何情况下，某个变量的状态必须满足。（如某个变量的变化范围）</p>
-<p>​       对于上面的前置条件和后置条件可能有的读者还不是很了解，那么看看下面的解释你就明白了。</p>
-<p>​        1.前置条件断言：代码执行之前必须具备的特性</p>
-<p>​        2.后置条件断言：代码执行之后必须具备的特性</p>
-<p>​        3.前后不变断言：代码执行前后不能变化的特性</p>
-<p>​       当然在使用的断言的过程中会有一些我们应该注意的事项和养成一些良好的习惯，如：</p>
-<p>​        1.每个assert只检验一个条件，因为同时检验多个条件时，如果断言失败，我们就无法直观的判断是哪个条件失败</p>
-<p>​        2.不能使用改变环境的语句，就像我们上面的代码改变了i变量，在实际编写代码的过程中是不能这样做的</p>
-<p>​        3.assert和后面的语句应空一行，以形成逻辑和视觉上的一致感，也算是一种良好的编程习惯吧，让编写的代码有一种视觉上的美感</p>
-<p>​        4.有的地方，assert不能代替条件过滤</p>
-<p>​        5.放在函数参数的入口处检查传入参数的合法性</p>
-<p>​        6.断言语句不可以有任何边界效应</p>
-<p>​        7.频繁的调用会极大的影响程序的性能，增加额外的开销。所以在调试结束后，可以通过在包含#include 的语句之前插入 #define NDEBUG 来禁用assert调用。</p>
-<p>​       现在回到GPIO_Init源码中，通过以下2段代码我们可以更好的理解断言在实际开发中的应用</p>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assert_param(<span class="name">IS_GPIO_ALL_PERIPH</span>(<span class="name">GPIOx</span>))<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#define IS_GPIO_ALL_PERIPH(<span class="name">PERIPH</span>) (((<span class="name">PERIPH</span>) == GPIOA) || \</span><br><span class="line">                                    ((<span class="name">PERIPH</span>) == GPIOB) || \</span><br><span class="line">                                    ((<span class="name">PERIPH</span>) == GPIOC) || \</span><br><span class="line">                                    ((<span class="name">PERIPH</span>) == GPIOD) || \</span><br><span class="line">                                    ((<span class="name">PERIPH</span>) == GPIOE) || \</span><br><span class="line">                                    ((<span class="name">PERIPH</span>) == GPIOF) || \</span><br><span class="line">                                    ((<span class="name">PERIPH</span>) == GPIOG))</span><br></pre></td></tr></table></figure>
-<p>​      由第二段代码的含参宏，确定传入的参数是否符合要求，这种用法为上述的前置条件断言。</p>
+        <p>有线-&gt;无线优点：</p>
+<p>移动性</p>
+<p>弹性（快速部署）</p>
+<p>成本</p>
+<p>无线网络特点：对有线网络的互补而非取代</p>
+<p>MAC：介质访问控制</p>
+<p>指派给802.11网络卡的MAC地址与以太网来自同一地址库，对外面的网络而言，没有区别。802.11的MAC地址也会出现在ARP列表中</p>
+<p>只要时802网络就必然会同时具备MAC与PHY两种元件，MAC用于决定如何访问介质与传输介质的规则，PHY负责传送与接收的细节。</p>
+<p>CSMA／CD：载波侦听／碰撞检测</p>
+<p>CSMA／CA：载波侦听／冲突避免　虚拟载波侦听由网络分配矢量（ Network Allocation Vector，简称 NAV）所提供 </p>
+<p>LLC：逻辑链路控制层</p>
+<p>802.11两种物理层：调频展频FHSS　　直接序列展频ＤＳＳＳ</p>
+<p>BSS：Basic Service Set，基本服务集。802.11 网络基本组件，每个 BSS 包含一组逻辑上彼此关联的工作站。 </p>
+<p>DS：分布式系统（Distribution System），用来串联接入点的一组服务。逻辑上包含有线骨干网络和桥接功能。</p>
+<p>MIC：消息完整性校验码（message integrity code）。针对一组欲保护数据计算出的散列值，用以防止数据遭篡改。  </p>
+<p>IV：初始化向量（Initialization Vector），加密标头中公开的密钥材料。 </p>
+<p>ICV：完整性校验值（Integrity Check Value），数据帧的校验码，用于防止数据遭篡改。 </p>
+<p>Michael：数据完整性的校验算法，由 TKIP 规范。 </p>
+<p>TLS：传输层安全协议（TLS）是确保互联网上通信应用和其用户隐私的协议（RFC 2246）。当服务器和客户机进行通信，TLS 确保没有第三方能窃听或盗取信息。TLS 是安全套接字层（SSL）的后继协议。 </p>
+<p>无线局域网的基本构成单位是基本业务集 BSS，它提供一个覆盖区域，使 BSS 中的站点保存充分连接。 BSS 支持两种拓扑结构：<br>独立基本服务集 IBSS：称为特别网络(ad hoc network)。是一个独立的 BSS，没有中枢链路基础结构，一个最小的 IBSS 最少包含两个工作站（ STA），工作站之间可以直接通信。这种操作模式能够形成灵活的组网机制，且不需要事先规划。<br> 基础结构型基本服务集 Infostructure BSS： STA 必须与 AP 建立关联，才能取得网络服务。 </p>
+<p>多个 BSS 可以构成一个扩展网络(ESS 网络)。 ESS 内部的 STA 可以互相通信，但是 STA通信是必须通过 AP 进行。连接多个 AP(BSS 的组件)称为分布系统（ DS）。 </p>
+<p>无线介质本身也可以做为传输系统。此种无线传输系统(wireless　distribution system，简称 WDS）的配置通常称为「无线桥接器」 (wireless bridge）配置，因为它允许网络工程师在链路层连接两个局域网络。无线桥接器可用来快速连接不同的网段，十分适合访问供应商（ access provider）使用。 </p>
+<p>TPC 是在 802.11h 所定义的新服务。 欧洲标准要求作业于 5 GHz 频段的工作站必须能够控制电波的传输功率，避免干扰其他同样使用 5 GHz 频段的用户。传输功率控制也有助于避免干扰其他无线局域网络。传输距离是传输功率的函数；工作站的传输功率愈高，传输距离就愈远，也就愈容易干扰邻近的网络。如果可以 将传输功率调到“刚刚好”（ just right），就可以避免干扰到邻近的工作站。 </p>
+<p>动态选频（DFS），开发的目的主要是为了在欧洲地区避免干扰 5GHz 频段的雷达系统。 </p>
+<p>就 802.11 而言，基站之间可能出现三种转换：</p>
+<p>不转换 </p>
+<p>BSS 转换 </p>
+<p>ESS 转换 （未支持）</p>
+<p>和其他链路层协议不同，802.11 采用正面回应机制。所有传送出去的帧都必须得到回应，只要任何一个环节失败，该帧即视为已经丢掉。 在无线网络中，由隐藏节点所导致的碰撞问题相当难以监听，因为无线收发器通常是半双工工作模式， 即无法同时收发数据。 为了防止碰撞发生， 802.11 允许工作站使用请求发送（ RTS）和允许发送（CTS）帧来清空传送区域。由于 RTS 与 CTS 帧会延长数据交易过程，因此 RTS<br>帧、 CTS 帧、数据帧以及最后的应答帧均被视为相同基本连接的一部分。 DCF 是标准 CSMA/CA 访问机制的基础。和以太网一样，在传送数据之前，它会先检查无线链路是否处于空闲状态。为了避免冲突发生，当某个传送者占据频道时，工作站会随机为每个帧选定一段延后时间。在某些情况之下， DCF 可利用 CTS/RTS 空闲技术，进一步减少碰撞发<br>生的可能性。<br>点协调功能提供的是免竞争服务。 称为点协调者的特殊工作站可以确保不必通过竞争即可使用介质。点协调者位于基站，因此只有基础型网络才会使用 PCF。为了赋予比标准竞争式还高的优先性，PCF 允许工作站经过一段较短的时间即可传送帧。PCF 在实际上并不常见<br>有些应用需要尽力传达更高一级的服务质量，却又不需要用到 PCF 那么严格的管控。 HCF允许工作站维护多组服务队列，针对需要更高服务品质的应用，则提拔更多的介质访问机会。HCF 尚未完全标准化，不过最终将成为802.11 标准的一部分。 </p>
+<p>802.11 会用到四种不同的帧间隔：</p>
+<p>SIFS ＜PIFS ＜DIFS ＜EIFS </p>
+<p>定期发送 Beacon，主要是用来声明某个网络的存在。STA 根据 Beacon 得知某个网络存在，从而调整加入该网络所必须的参数。 </p>
+<p>控制帧和管理帧：</p>
+<ol>
+<li>控制帧主要用于协助数据帧的传递，可用于管理无线媒介的访问、提供MAC层的可靠性。以下只讲帧类型，不讲帧结构。<br>1.1 RTS帧：用来取得媒介的控制权，用于传送分段帧，分段由网卡驱动程序中的RTS threshold阀值确定。<br>1.2 CTS帧：用于回复RTS帧，没有RTS就没有CTS。<br>1.3 ACK帧：MAC及任何数据的传送（包括一般传送，RTS/CTS交换之前的帧、帧片段）所需要的肯定确认。<br>1.4 PS-POLL帧：移动式工作站从省电模式苏醒后，回向AP传送一个PS-POLL帧用于获得缓存帧。</li>
+<li>管理帧:802.11的管理过程分为3步，首先移动式工作站找出可供访问的兼容无线网络，其次网络系统对移动式工作站进行验证，最后移动式工作站与AP之间建立关联。帧主体有固定字段（长度固定的字段）和信息元素（长度不定的数据块） </li>
+<li>管理帧的类型<br>3.1 Beacon（信标）帧：主要用于声明某个网络的存在<br>3.2 Probe Request 帧：移动式工作站用于扫描所在区域内有哪些802.11网络。<br>3.3 Probe Resonse帧：如果Probe Request所检查的网络与之兼容，该网络用Probe Request响应。<br>3.4 IBSS ATIM帧：IBSS without AP,无法依赖AP缓存帧，IBSS工作站为处于休眠状态的接收者缓存帧，就会在传递期间送出一个ATIM帧通知对方有消息待传。<br>3.5 Disassociation帧与Deauthentication帧：用于结束一段认证关系<br>3.6 Association Request帧：移动式工作站找到兼容网络并通过身份验证，便发送Association Request帧以试图加入网络。<br>3.7 Reassociation Request 帧：位于相同扩展服务区域，但在不同基本服务区域间游走的移动式工作站，再次使用分布式系统时，必须与网络重新关联。<br>3.8 Association Response帧与Reassociation Response帧：<br>3.9 Authentication帧：<br>3.10 Aciton 帧：用于触发测量动作。</li>
+</ol>
+<p>802.11 工作站可以关闭无线电波收发器，并且定期进入休眠状态，以维持最长的电池使用时间。在这段期间，基站会为每部处于休眠状态的工作站暂存帧。若有暂存帧，基站会在后续的 Beacon 帧中告知工作站。由省电状态唤醒的工作站可以使用 PS-Poll 帧取得这些暂存帧。 </p>
+<p>ACK 或 CTS 之类的应答帧必须以基本速率组合所包含的速率传送， 但不能高于这次传输所使用的起始帧。应答帧必须使用与起始帧相同的调制方式（DSSS、CCK或OFDM）。</p>
+<p>无线基站的核心，其实就是桥接器，负责在无线与有线介质之间转换帧。  </p>
+<p>WEP 用来保护数据的 RC4 密码锁属于对称性密钥串流密码锁 </p>
+<p>  无线加密的多种方法及其区别（WEP WPA TKIP EAP）<br>无线网络的安全性由认证和加密来保证。<br>认证允许只有被许可的用户才能连接到无线网络；<br>加密的目的是提供数据的保密性和完整性（数据在传输过程中不会被篡改）。<br>802.11标准最初只定义了两种认证方法：<br>  开放系统认证（Open System Authentication）<br>  共享密钥认证（Shared Key Authentication）<br>以及一种加密方法：<br>  有线等效保密（Wired Equivalent Privacy – WEP）<br>对于开放系统认证，在设置时也可以启用WEP，此时，WEP用于在传输数据时加密，对认证没有任何作用。<br>对于共享密钥认证，必须启用WEP，WEP不仅用于认证，也用于在传输数据时加密。<br>WEP使用对称加密算法（即发送方和接收方的密钥是一致的），WEP使用40位或104位密钥和24位初始化向量（Initialization Vector – IV，随机数）来加密数据。<br>注：使用初始化变量（IV）的目的是避免在加密的信息中出现相同的数据。例如：在数据传输中，源地址总是相同的，如果只是单纯的加密（WEP使用静态密码），这样在加密的信息中会出现相同的数据，有可能被恶意地破解。由于初始化变量（IV）是随机数，可以避免这种情况的出现。<br>在配置无线网络的安全性时，一般将40位/104位密钥写成密钥长度：64位（40+24）/128位（104+24）<br>由于WEP有一些严重缺陷，如初始化向量的范围有限，而且是使用明文传送……，802.11使用802.1x来进行认证、授权和密钥管理，另外，IEEE开始制订802.11i标准，用于增强无线网络的安全性。<br>同时，Wi-Fi联盟与IEEE一起开发了Wi-Fi受保护的访问（Wi-Fi Protected Access – WPA）以解决WEP的缺陷<br>WPA<br>WPA不同于WEP，WPA同时提供认证（基于802.1x可扩展认证协议 – Extensible Authentiation Protocl - EAP的认证）和加密（临时密钥完整性协议 – Temporal Key Integrity Protocol – TKIP）。<br>WPA的认证 – 802.1x<br>802.1x最初设计用于有线网络，但对无线网络也适用。802.1x使用认证服务器在无线网卡和无线访问点（AP）之间提供基于端口的访问控制和相互认证。<br>802.1x体系结构包括下列3部分：<br>（1）Supplicant：要访问网络的设备，通常是802.11客户端<br>（2）Authenticator：客户端和认证服务器的中间设备，在客户端和认证服务器之间传递信息。对于无线网络来说通常为无线访问点（AP）。<br>（3）Authentication Server（认证服务器）：对Supplicant进行实际身份验证的设备，通常是远程认证拨号用户服务（Remote Authentication Dial-In User Service - RADIUS）服务器<br>韩梅梅预约好了去拜访某公司老总，李雷也要去。到了公司门口，保安要求两人出示身份证明，保安通过电话与老总联系后，老总确认后通知可以让韩梅梅进来，李雷不能进去。保安根据老总的指示，对韩梅梅放行，拒绝李雷进入。<br>韩梅梅和李雷相当于802.1x体系中的supplicant，保安相当于authenticator，只起一个传送信息的作用，而不是进行实际的身份验证，老总相当于authentication server，进行实际的身份验证。<br>Supplicant、authenticator、authentication server三者之间需要通信。<br>Supplicant和authenticator之间使用EAPoL通信，authenticator将EAP封装在其他高层协议（如RADIUS）中与authentciation server通信或authenticator将EAPoL转换为其他认证协议（如RADIUS）传递给authentication server。<br>EAP和EAPoL<br>我对EAP和EAPoL的区别一直很模糊。这次好好看了些资料，总结如下：<br>EAP<br>可扩展认证协议（EAP）是一个认证框架，而不是一种特定的认证机制，EAP提供一些公共的功能，并且允许协商认证机制（EAP方法）。EAP规定如何传输和使用由EAP方法产生的密钥材料（如密钥、证书等等）和参数。<br>无线网络中常用的EAP方法（认证机制）包括EAP-TLS、EAP-SIM、EAP-AKA、LEAP和EAP-TTLS。<br>EAPoL（EAP over LAN）<br>EAP只定义了消息格式，每种使用EAP的协议必须定义一种将EAP消息封装到该协议消息中的方法。<br>802.1x中定义了将EAP消息封装到802中的方法，这种方法称为EAP over LAN – EAPoL。所以EAPoL实际上是一种传送机制。实际的认证方法是EAP方法来指定。<br>802.1x认证的核心是authenticator上端口的打开与关闭。对于合法用户（认证通过的用户）接入时，端口打开，可以自由访问网络；对于没有用户接入或非法用户（认证未通过的用户）接入时，端口关闭，这样就不能访问网络。</p>
+<p>802.1x认证过程中还使用了动态密钥以加密数据。<br>WPA的加密 – TKIP<br>临时密钥完整性协议（Temporal Key Integrity Protocol – TKIP）也是对称加密方法，使用RC4算法，TKIP使用128位临时密钥和48位初始化向量（IV）<br>总结<br>WPA的优点：<br>（1）WPA利用802.1x认证提供强力的访问控制；<br>（2）TKIP使用动态密钥<br>WPA缺点：<br>（1）由于TKIP使用RC4算法，安全隐患<br>（2）复杂的认证和加密导致性能降低  </p>
 
       
     </div>
@@ -488,9 +503,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C语言/" rel="tag"><i class="fa fa-tag"></i> C语言</a>
-          
-            <a href="/tags/stm32/" rel="tag"><i class="fa fa-tag"></i> stm32</a>
+            <a href="/tags/无线/" rel="tag"><i class="fa fa-tag"></i> 无线</a>
           
         </div>
       
@@ -503,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/16107/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/posts/2039/" rel="next" title="AP和STA模式">
+                <i class="fa fa-chevron-left"></i> AP和STA模式
               </a>
             
           </div>
@@ -512,10 +525,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/33448/" rel="prev" title="stm32 I/O口的八种工作模式">
-                stm32 I/O口的八种工作模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
